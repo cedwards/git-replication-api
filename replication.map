@@ -1,0 +1,36 @@
+git_path: /usr/local/bin/git
+repo_path: /usr/local/www/apache24/hooks/repositories
+default_source: https://github.com
+
+map:
+  10.0.0.70:
+    notify:
+      - 10.0.0.71
+      - 10.0.0.72
+    source: https://github.com
+  
+  10.0.0.71:
+    notify:
+      - 10.0.0.73
+      - 10.0.0.74
+      - 10.0.0.75
+    source: http://10.0.0.70:8080
+  
+  10.0.0.72:
+    notify:
+      - 10.0.0.73
+      - 10.0.0.74
+      - 10.0.0.75
+    source: http://10.0.0.70:8080
+
+  10.0.0.73:
+    notify: False
+    source: http://10.0.0.71:8080
+
+  10.0.0.74:
+    notify: False
+    source: http://10.0.0.71:8080
+
+  10.0.0.75:
+    notify: False
+    source: http://10.0.0.71:8080
